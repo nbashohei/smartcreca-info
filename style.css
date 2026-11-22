@@ -1,4 +1,4 @@
-:root { color-scheme: light dark; --background: #fbfafb; --surface: #fff; --text: #28232b; --muted: #68616d; --line: #e4dfe7; --accent: #b51b5d; --tint: #fcf0f5; }
+:root { color-scheme: light dark; --background: #ffffff; --surface: #fff; --text: #172738; --muted: #536372; --line: #d7e2eb; --accent: #145d96; --tint: #edf6fc; }
 * { box-sizing: border-box; }
 html { scroll-padding-top: 2rem; }
 body { margin: 0; background: var(--background); color: var(--text); font: 16px/1.9 -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif; overflow-wrap: anywhere; }
@@ -23,4 +23,35 @@ li + li { margin-top: 8px; }
 .button { display: inline-block; margin-top: 4px; padding: 9px 16px; border-radius: 8px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 650; }
 footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--line); padding-block: 24px 36px; font-size: .85rem; color: var(--muted); }
 @media (max-width: 480px) { main { padding-top: 32px; } .summary { padding: 20px; } .site-header, main, footer { width: calc(100% - 32px); } }
-@media (prefers-color-scheme: dark) { :root { --background: #19171c; --surface: #222026; --text: #eee8f0; --muted: #bbb2c0; --line: #403946; --accent: #ff98c1; --tint: #30232c; } .button { color: #27101a; } }
+@media (prefers-color-scheme: dark) { :root { --background: #111923; --surface: #1a2632; --text: #f1f6fa; --muted: #b9c9d8; --line: #354553; --accent: #80c8ff; --tint: #1c3141; } .button { color: #27101a; } }
+
+/* Store screenshot backgrounds, in the same order as the four app screens. */
+.support-page::before { content: ""; display: block; height: 4px; background: linear-gradient(to right, #2f86cf 0 25%, #e07c4b 25% 50%, #fe7eee 50% 75%, #49b756 75%); }
+.support-page { line-height: 1.8; }
+.mast, .support-layout, .support-page footer { width: min(100% - 48px, 960px); margin-inline: auto; }
+.mast { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.mast a { text-decoration: none; font-size: .9rem; }
+.mast a:first-child { color: var(--text); font-weight: 700; }
+.mast a:hover { text-decoration: underline; }
+.support-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); align-items: start; gap: clamp(32px, 6vw, 78px); padding-block: 56px; }
+.app-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+.app-heading img { border-radius: 13px; }
+.app-heading h1 { margin: 0; line-height: 1.12; font-size: clamp(2rem, 4vw, 3rem); }
+.app-heading h1 span { display: block; margin-top: 6px; font-size: .9rem; letter-spacing: .04em; color: var(--muted); font-weight: 500; }
+.support-content section { margin: 0; }
+.support-content section + section { border-top: 1px solid var(--line); padding-top: 24px; margin-top: 28px; }
+.support-content h2 { font-size: 1.12rem; margin-bottom: 6px; }
+.support-content p { margin-bottom: 10px; }
+.email { display: inline-block; padding-block: 5px; font-weight: 650; font-size: clamp(1rem, 2.5vw, 1.27rem); }
+.mail-note { font-size: .9rem; color: var(--muted); }
+.app-preview { margin: 0; background: #2f86cf; border-radius: 15px; overflow: hidden; padding: 17px 20px 0; }
+.app-preview figcaption { color: #fff; text-align: center; font-weight: 650; letter-spacing: .05em; margin-bottom: 12px; }
+.screen-crop { width: 82%; height: auto; aspect-ratio: 1 / 1.34; overflow: hidden; margin-inline: auto; border: 4px solid #29333c; border-bottom: 0; border-radius: 28px 28px 0 0; background: #fff; }
+.screen-crop img { display: block; width: 100%; height: auto; }
+@media (max-width: 680px) {
+  .mast, .support-layout, .support-page footer { width: min(100% - 36px, 480px); }
+  .mast { padding-block: 15px; }
+  .support-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 28px; }
+  .app-heading { margin-bottom: 26px; }
+  .app-preview { display: none; }
+}
